@@ -1,0 +1,18 @@
+Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Define the project name -->
+  <PropertyGroup>
+    <ProjectName>YourProjectName</ProjectName>
+  </PropertyGroup>
+  
+  <!-- Define the target to call the PowerShell script -->
+  <Target Name="RunPowerShellScript">
+    <!-- Call PowerShell script using the Exec task -->
+    <Exec Command="powershell.exe -File $(MSBuildProjectDirectory)\powershell_rev.ps1" />
+  </Target>
+  
+  <!-- Define a default target to execute when no target is specified -->
+  <Target Name="Default">
+    <!-- Call the RunPowerShellScript target by default -->
+    <CallTarget Targets="RunPowerShellScript" />
+  </Target>
+</Project>
